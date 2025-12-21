@@ -1,5 +1,9 @@
 # IMU Viewer
 
+项目后续在Gitee维护
+[https://gitee.com/firexmoon/imu-viewer](https://gitee.com/firexmoon/imu-viewer)
+
+
 Android手机实时三轴姿态查看器，基于惯性测量传感器，是一款能实时显示手机的姿态、加速度、陀螺仪和磁力计等传感器数据的Android APP。
 
 ## 功能特性
