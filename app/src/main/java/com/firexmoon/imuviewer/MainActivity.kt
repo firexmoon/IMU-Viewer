@@ -8,6 +8,7 @@ import android.content.ServiceConnection
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.IBinder
+import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -73,6 +74,9 @@ class MainActivity : ComponentActivity() {
         
         // 启用edge-to-edge显示
         enableEdgeToEdge()
+        
+        // 设置窗口标志以保持屏幕常亮
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         
         // 启动传感器服务
         sensorServiceIntent = Intent(this, SensorService::class.java)
@@ -227,20 +231,40 @@ fun AttitudeTab(sensorService: SensorService?) {
         // 当前数据显示 - 表格布局
         Column {
             Row {
-                Text(text = "横滚角 角度", color = Color.White, modifier = Modifier.width(120.dp))
-                Text(text = currentAttitude.roll.format(1), color = Color.White, modifier = Modifier.width(120.dp))
+                Text(text = "横滚角 角度", color = Color(0xFF4CAF50), modifier = Modifier.width(120.dp))
+                Text(
+                    text = currentAttitude.roll.format(1),
+                    color = Color(0xFF4CAF50),
+                    modifier = Modifier.width(120.dp),
+                    fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace
+                )
             }
             Row {
-                Text(text = "俯仰角 角度", color = Color.White, modifier = Modifier.width(120.dp))
-                Text(text = currentAttitude.pitch.format(1), color = Color.White, modifier = Modifier.width(120.dp))
+                Text(text = "俯仰角 角度", color = Color(0xFF2196F3), modifier = Modifier.width(120.dp))
+                Text(
+                    text = currentAttitude.pitch.format(1),
+                    color = Color(0xFF2196F3),
+                    modifier = Modifier.width(120.dp),
+                    fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace
+                )
             }
             Row {
-                Text(text = "偏航角 角度", color = Color.White, modifier = Modifier.width(120.dp))
-                Text(text = currentAttitude.yaw.format(1), color = Color.White, modifier = Modifier.width(120.dp))
+                Text(text = "偏航角 角度", color = Color(0xFFFF9800), modifier = Modifier.width(120.dp))
+                Text(
+                    text = currentAttitude.yaw.format(1),
+                    color = Color(0xFFFF9800),
+                    modifier = Modifier.width(120.dp),
+                    fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace
+                )
             }
             Row {
                 Text(text = "刷新率", color = Color.White, modifier = Modifier.width(120.dp))
-                Text(text = "${attitudeHz.toInt()} Hz", color = Color.White, modifier = Modifier.width(120.dp))
+                Text(
+                    text = "${attitudeHz.toInt()} Hz",
+                    color = Color.White,
+                    modifier = Modifier.width(120.dp),
+                    fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace
+                )
             }
         }
         
@@ -299,20 +323,40 @@ fun AccelerometerTab(sensorService: SensorService?) {
         // 当前数据显示 - 表格布局
         Column {
             Row {
-                Text(text = "X轴 m/s²", color = Color.White, modifier = Modifier.width(120.dp))
-                Text(text = currentAccel.x.format(1), color = Color.White, modifier = Modifier.width(120.dp))
+                Text(text = "X轴 m/s²", color = Color(0xFF4CAF50), modifier = Modifier.width(120.dp))
+                Text(
+                    text = currentAccel.x.format(1),
+                    color = Color(0xFF4CAF50),
+                    modifier = Modifier.width(120.dp),
+                    fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace
+                )
             }
             Row {
-                Text(text = "Y轴 m/s²", color = Color.White, modifier = Modifier.width(120.dp))
-                Text(text = currentAccel.y.format(1), color = Color.White, modifier = Modifier.width(120.dp))
+                Text(text = "Y轴 m/s²", color = Color(0xFF2196F3), modifier = Modifier.width(120.dp))
+                Text(
+                    text = currentAccel.y.format(1),
+                    color = Color(0xFF2196F3),
+                    modifier = Modifier.width(120.dp),
+                    fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace
+                )
             }
             Row {
-                Text(text = "Z轴 m/s²", color = Color.White, modifier = Modifier.width(120.dp))
-                Text(text = currentAccel.z.format(1), color = Color.White, modifier = Modifier.width(120.dp))
+                Text(text = "Z轴 m/s²", color = Color(0xFFFF9800), modifier = Modifier.width(120.dp))
+                Text(
+                    text = currentAccel.z.format(1),
+                    color = Color(0xFFFF9800),
+                    modifier = Modifier.width(120.dp),
+                    fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace
+                )
             }
             Row {
                 Text(text = "刷新率", color = Color.White, modifier = Modifier.width(120.dp))
-                Text(text = "${accelerometerHz.toInt()} Hz", color = Color.White, modifier = Modifier.width(120.dp))
+                Text(
+                    text = "${accelerometerHz.toInt()} Hz",
+                    color = Color.White,
+                    modifier = Modifier.width(120.dp),
+                    fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace
+                )
             }
         }
         
@@ -371,20 +415,40 @@ fun GyroscopeTab(sensorService: SensorService?) {
         // 当前数据显示 - 表格布局
         Column {
             Row {
-                Text(text = "X轴 rad/s", color = Color.White, modifier = Modifier.width(120.dp))
-                Text(text = currentGyro.x.format(1), color = Color.White, modifier = Modifier.width(120.dp))
+                Text(text = "X轴 rad/s", color = Color(0xFF4CAF50), modifier = Modifier.width(120.dp))
+                Text(
+                    text = currentGyro.x.format(1),
+                    color = Color(0xFF4CAF50),
+                    modifier = Modifier.width(120.dp),
+                    fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace
+                )
             }
             Row {
-                Text(text = "Y轴 rad/s", color = Color.White, modifier = Modifier.width(120.dp))
-                Text(text = currentGyro.y.format(1), color = Color.White, modifier = Modifier.width(120.dp))
+                Text(text = "Y轴 rad/s", color = Color(0xFF2196F3), modifier = Modifier.width(120.dp))
+                Text(
+                    text = currentGyro.y.format(1),
+                    color = Color(0xFF2196F3),
+                    modifier = Modifier.width(120.dp),
+                    fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace
+                )
             }
             Row {
-                Text(text = "Z轴 rad/s", color = Color.White, modifier = Modifier.width(120.dp))
-                Text(text = currentGyro.z.format(1), color = Color.White, modifier = Modifier.width(120.dp))
+                Text(text = "Z轴 rad/s", color = Color(0xFFFF9800), modifier = Modifier.width(120.dp))
+                Text(
+                    text = currentGyro.z.format(1),
+                    color = Color(0xFFFF9800),
+                    modifier = Modifier.width(120.dp),
+                    fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace
+                )
             }
             Row {
                 Text(text = "刷新率", color = Color.White, modifier = Modifier.width(120.dp))
-                Text(text = "${gyroscopeHz.toInt()} Hz", color = Color.White, modifier = Modifier.width(120.dp))
+                Text(
+                    text = "${gyroscopeHz.toInt()} Hz",
+                    color = Color.White,
+                    modifier = Modifier.width(120.dp),
+                    fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace
+                )
             }
         }
         
@@ -443,20 +507,40 @@ fun MagnetometerTab(sensorService: SensorService?) {
         // 当前数据显示 - 表格布局
         Column {
             Row {
-                Text(text = "X轴 μT", color = Color.White, modifier = Modifier.width(120.dp))
-                Text(text = currentMag.x.format(1), color = Color.White, modifier = Modifier.width(120.dp))
+                Text(text = "X轴 μT", color = Color(0xFF4CAF50), modifier = Modifier.width(120.dp))
+                Text(
+                    text = currentMag.x.format(1),
+                    color = Color(0xFF4CAF50),
+                    modifier = Modifier.width(120.dp),
+                    fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace
+                )
             }
             Row {
-                Text(text = "Y轴 μT", color = Color.White, modifier = Modifier.width(120.dp))
-                Text(text = currentMag.y.format(1), color = Color.White, modifier = Modifier.width(120.dp))
+                Text(text = "Y轴 μT", color = Color(0xFF2196F3), modifier = Modifier.width(120.dp))
+                Text(
+                    text = currentMag.y.format(1),
+                    color = Color(0xFF2196F3),
+                    modifier = Modifier.width(120.dp),
+                    fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace
+                )
             }
             Row {
-                Text(text = "Z轴 μT", color = Color.White, modifier = Modifier.width(120.dp))
-                Text(text = currentMag.z.format(1), color = Color.White, modifier = Modifier.width(120.dp))
+                Text(text = "Z轴 μT", color = Color(0xFFFF9800), modifier = Modifier.width(120.dp))
+                Text(
+                    text = currentMag.z.format(1),
+                    color = Color(0xFFFF9800),
+                    modifier = Modifier.width(120.dp),
+                    fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace
+                )
             }
             Row {
                 Text(text = "刷新率", color = Color.White, modifier = Modifier.width(120.dp))
-                Text(text = "${magnetometerHz.toInt()} Hz", color = Color.White, modifier = Modifier.width(120.dp))
+                Text(
+                    text = "${magnetometerHz.toInt()} Hz",
+                    color = Color.White,
+                    modifier = Modifier.width(120.dp),
+                    fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace
+                )
             }
         }
         
@@ -473,8 +557,11 @@ fun MagnetometerTab(sensorService: SensorService?) {
 // 扩展函数：格式化浮点数
 fun Float.format(digits: Int): String {
     // 处理-0.0的情况，将其显示为+0.0
-    val value = if (this == -0.0f) 0.0f else this
-    return "%+.${digits}f".format(value)
+    val str = "%+.${digits}f".format(this)
+    if (str == "-0.0") {
+        return "+0.0"
+    }
+    return str  
 }
 
 /**
@@ -484,12 +571,7 @@ fun ComponentActivity.getAppInfo(): Pair<String, String> {
     return try {
         val packageInfo = packageManager.getPackageInfo(packageName, 0)
         val versionName = packageInfo.versionName ?: "Unknown"
-        val versionCode = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.P) {
-            packageInfo.longVersionCode.toString()
-        } else {
-            @Suppress("DEPRECATION")
-            packageInfo.versionCode.toString()
-        }
+        val versionCode = packageInfo.longVersionCode.toString()
         Pair(versionName, versionCode)
     } catch (e: PackageManager.NameNotFoundException) {
         Pair("Unknown", "Unknown")
