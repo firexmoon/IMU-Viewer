@@ -134,7 +134,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun SensorDataApp(sensorService: SensorService?) {
     var tabIndex by remember { mutableIntStateOf(0) }
-    val tabs = listOf("姿态", "加速度", "陀螺仪", "磁力计", "关于")
+    val tabs = listOf("加速度", "陀螺仪", "磁力计", "姿态", "关于")
     
     // 使用rememberUpdatedState确保获取最新的服务实例
     val currentService by rememberUpdatedState(sensorService)
@@ -165,10 +165,10 @@ fun SensorDataApp(sensorService: SensorService?) {
             color = Color.Black
         ) {
             when (tabIndex) {
-                0 -> AttitudeTab(currentService)
-                1 -> AccelerometerTab(currentService)
-                2 -> GyroscopeTab(currentService)
-                3 -> MagnetometerTab(currentService)
+                0 -> AccelerometerTab(currentService)
+                1 -> GyroscopeTab(currentService)
+                2 -> MagnetometerTab(currentService)
+                3 -> AttitudeTab(currentService)
                 4 -> AboutTab()
             }
         }
