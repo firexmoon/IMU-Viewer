@@ -12,12 +12,14 @@ import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.height
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Tab
@@ -32,6 +34,7 @@ import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableFloatStateOf
@@ -613,25 +616,53 @@ fun AboutTab() {
             color = Color.White,
             modifier = Modifier.padding(bottom = 8.dp)
         )
-        
-        Text(
-            text = "版本代码: $versionCode",
-            style = MaterialTheme.typography.bodyLarge,
-            color = Color.White,
-            modifier = Modifier.padding(bottom = 16.dp)
-        )
-        
+
         Text(
             text = "© 2025 FireXMoon",
             style = MaterialTheme.typography.bodyMedium,
             color = Color.White,
             modifier = Modifier.padding(bottom = 8.dp)
         )
-        
+
         Text(
             text = "firexmoon@hotmail.com",
             style = MaterialTheme.typography.bodyMedium,
-            color = Color.White
+            color = Color.White,
+            modifier = Modifier.padding(bottom = 8.dp)
+        )
+
+        Text(
+            text = "https://gitee.com/firexmoon/imu-viewer",
+            style = MaterialTheme.typography.bodyMedium,
+            color = Color.White,
+            modifier = Modifier.padding(bottom = 32.dp)
+        )
+        
+        Text(
+            text = "如果这个应用对您有帮助，欢迎扫码捐赠支持开发者！",
+            style = MaterialTheme.typography.bodyMedium,
+            color = Color.White,
+            modifier = Modifier.padding(bottom = 8.dp)
+        )
+        
+        // 显示捐赠二维码，水平居中并放大尺寸
+        androidx.compose.foundation.Image(
+            painter = androidx.compose.ui.res.painterResource(id = R.drawable.donation_qr_code),
+            contentDescription = "捐赠二维码",
+            modifier = Modifier
+                .padding(vertical = 16.dp)
+                .width(320.dp)
+                .height(320.dp)
+                .align(androidx.compose.ui.Alignment.CenterHorizontally)
+        )
+        
+        Text(
+            text = "感谢您的支持！",
+            style = MaterialTheme.typography.bodyMedium,
+            color = Color.White,
+            modifier = Modifier
+                .padding(bottom = 16.dp)
+                .align(androidx.compose.ui.Alignment.CenterHorizontally)
         )
     }
 }
