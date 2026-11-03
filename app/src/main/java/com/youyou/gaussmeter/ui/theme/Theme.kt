@@ -1,4 +1,4 @@
-package com.firexmoon.imuviewer.ui.theme
+package com.youyou.gaussmeter.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
