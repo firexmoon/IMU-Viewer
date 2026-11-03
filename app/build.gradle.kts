@@ -5,13 +5,14 @@ plugins {
 }
 
 android {
-    namespace = "com.firexmoon.imuviewer"
-    compileSdk = 35
+    namespace = "com.youyou.gaussmeter"
+    compileSdk = 36
+    buildToolsVersion = "36.0.0"
 
     defaultConfig {
-        applicationId = "com.firexmoon.imuviewer"
+        applicationId = "com.youyou.gaussmeter"
         minSdk = 30
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 

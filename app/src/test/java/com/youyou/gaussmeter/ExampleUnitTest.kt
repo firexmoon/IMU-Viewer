@@ -1,4 +1,4 @@
-package com.firexmoon.imuviewer
+package com.youyou.gaussmeter
 
 import org.junit.Test
 
